@@ -1,55 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fancy Link Tree</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: "DM Sans", sans-serif;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fancy Link Tree</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f7f7f7;
-    }
+      body {
+        overflow: hidden;
+        position: relative;
+      }
 
-    .link-container {
-      text-align: center;
-    }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      body {
+        margin: 0;
+        padding: 0;
+      }
 
-    .link {
-      display: block;
-      margin: 10px;
-      padding: 15px 20px;
-      background-color: #4caf50;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 18px;
-      transition: 0.3s;
-    }
+      a {
+        text-decoration: none;
+      }
 
-    .link:hover {
-      background-color: #45a049;
-    }
-  </style>
-</head>
+      .background-image {
+        position: absolute;
+        top: -5px;
+        left: 0;
+        height: 105%;
+        width: 100%;
+        z-index: -1;
+      }
+      .background-image img {
+        background-size: auto;
+        height: 100%;
+        width: 100%;
+      }
+      .content-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        height: 100vh;
+        padding-top: 5rem;
+        padding-left: 1.2rem;
+        padding-right: 1rem;
+      }
 
-<body>
-  <div class="link-container">
-    <a href="https://www.linkedin.com/" class="link" target="_blank">Linkedin</a>
-    <a href="https://wa.me/1234567890" class="link" target="_blank">Whatsapp</a>
-    <a href="https://www.example.com/" class="link" target="_blank">Website</a>
-    <a href="tel:+1234567890" class="link">Phone</a>
-    <a href="https://www.facebook.com/" class="link" target="_blank">Facebook</a>
-  </div>
+      .content-container .avatar {
+        object-position: top center;
+        object-fit: none;
+        border-radius: 9999px;
+        width: 8rem;
+        height: 8rem;
+      }
 
-  <script>
-    // You can add JavaScript code here if needed
-  </script>
-</body>
+      .content-container .content-container__information {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.25rem;
+        margin-top: 1.5rem;
+        color: #fff;
+      }
 
+      .content-container
+        .content-container__information
+        .content-container__information__name {
+        font-size: 2rem;
+        line-height: 2rem;
+        font-weight: 600;
+      }
+
+      .content-container
+        .content-container__information
+        .content-container__information__position {
+        font-size: 1.25rem;
+        line-height: 2.5rem;
+        font-weight: 300;
+      }
+
+      .link-tree {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        margin-top: 3.5rem;
+      }
+
+      .link-tree .link {
+        background-color: #fff;
+        flex: 1;
+        text-align: center;
+        padding: 1rem;
+        border-radius: 100rem;
+        color: #61476d;
+        font-weight: 600;
+        font-size: 1.15rem;
+        border: 2px solid #fff;
+      }
+
+      @media screen and (min-width: 640px) {
+        .content-container {
+          justify-content: start;
+        }
+
+        .link-tree {
+          justify-content: center;
+          align-items: center;
+        }
+
+        .link-tree .link {
+          width: 40rem;
+        }
+      }
+
+	  @media screen and (min-width: 1024px) {
+		.link-tree .link:hover {
+		  background-color: transparent;
+		  transition: all .4s ease-in-out;
+		  color: #fff;
+        }
+	  }
+    </style>
+  </head>
+
+  <body>
+    <div class="background-image">
+      <img src="./images/background.png" />
+    </div>
+    <div class="content-container">
+      <img
+        sizes="auto"
+        scrset="
+			./images/avatar_300px.png 300w,
+			./images/avatar.png 400w"
+        src="./images/avatar_300px.png"
+        class="avatar"
+        loading="lazyload"
+      />
+      <div class="content-container__information">
+        <h1 class="content-container__information__name">Vy Trinh</h1>
+        <h2
+          class="content-container__information__position text-md font-normal"
+        >
+          Marketing executor
+        </h2>
+      </div>
+      <div class="link-tree">
+        <a href="https://www.vymktg.com/" class="link" target="_blank"
+          >Vist my website</a
+        >
+        <a
+          href="https://www.linkedin.com/in/vy-trinh-fromvtovintage/"
+          class="link"
+          target="_blank"
+          >My profile linkedin</a
+        >
+        <a href="tel:+18014253581" class="link" target="_blank">Call me now</a>
+        <a href="https://wa.me/18014253581" class="link" target="_blank"
+          >Start whatsapp chat</a
+        >
+      </div>
+    </div>
+
+    <script>
+      // You can add JavaScript code here if needed
+    </script>
+  </body>
 </html>
