@@ -46,6 +46,7 @@
         z-index: -1;
       }
       .background-image img {
+        object-fit: cover;
         background-size: auto;
         height: 100%;
         width: 100%;
@@ -62,8 +63,7 @@
       }
 
       .content-container .avatar {
-        object-position: top center;
-        object-fit: none;
+        object-fit: cover;
         border-radius: 9999px;
         width: 8rem;
         height: 8rem;
@@ -130,27 +130,39 @@
         }
       }
 
-	  @media screen and (min-width: 1024px) {
-		.link-tree .link:hover {
-		  background-color: transparent;
-		  transition: all .4s ease-in-out;
-		  color: #fff;
+      @media screen and (min-width: 1024px) {
+        .link-tree .link:hover {
+          background-color: transparent;
+          transition: all 0.4s ease-in-out;
+          color: #fff;
         }
-	  }
+      }
     </style>
   </head>
 
   <body>
     <div class="background-image">
-      <img src="./images/background.png" />
+      <img
+        sizes="auto"
+        src="./images/background_430.png"
+        srcset="
+          ./images/background_430.png 430w,
+          ./images/background_768.png 768w,
+          ./images/background_820.png 820w,
+          ./images/background_1024.png 1024w,
+          ./images/background_1920.png 1920w,
+          ./images/background_2048.png 2048w,"
+        loading="lazyload"
+      />
     </div>
     <div class="content-container">
       <img
         sizes="auto"
         scrset="
-			./images/avatar_300px.png 300w,
-			./images/avatar.png 400w"
-        src="./images/avatar_300px.png"
+          ./images/avatar_256.png 256w,
+          ./images/avatar_384.png 384w,
+          ./images/avatar_512.png 512w"
+        src="./images/avatar_256.png"
         class="avatar"
         loading="lazyload"
       />
@@ -170,7 +182,7 @@
           href="https://www.linkedin.com/in/vy-trinh-fromvtovintage/"
           class="link"
           target="_blank"
-          >My profile linkedin</a
+          >My LinkedIn profile</a
         >
         <a href="tel:+18014253581" class="link" target="_blank">Call now</a>
         <a href="https://wa.me/18014253581" class="link" target="_blank"
